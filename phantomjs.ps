@@ -6,4 +6,4 @@ dir
 Add-Type -assembly "system.io.compression.filesystem"
 [io.compression.zipfile]::ExtractToDirectory("phantomjs-2.0.0-windows.zip", "extracted")
 copy "extracted/phantomjs-2.0.0-windows/bin/phantomjs.exe" phantomjs.exe
-dir
+Get-ChildItem
