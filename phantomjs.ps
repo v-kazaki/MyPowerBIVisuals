@@ -1,0 +1,6 @@
+$shell = new-object -com shell.application
+$zip = $shell.NameSpace(“archive.zip”)
+foreach($item in $zip.items())
+{
+$shell.Namespace(“outfolder”).copyhere($item)
+}
