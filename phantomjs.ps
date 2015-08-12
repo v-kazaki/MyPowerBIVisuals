@@ -1,6 +1,4 @@
-$shell = new-object -com shell.application
-$zip = $shell.NameSpace(“archive.zip”)
-foreach($item in $zip.items())
-{
-$shell.Namespace(“outfolder”).copyhere($item)
-}
+$webclient = New-Object System.Net.WebClient
+$url = "https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.0.0-windows.zip"
+$file = "phantomjs-2.0.0-windows.zip"
+$webclient.DownloadFile($url,$file)
