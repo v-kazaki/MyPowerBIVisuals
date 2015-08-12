@@ -1,5 +1,3 @@
-Test1
-Test2
 # Microsoft Power BI visuals
 
 The Microsoft Power BI visuals project provides high quality data visualizations that you can use to extend [Power BI](https://powerbi.microsoft.com/).  The project contains over 20 visualization types, the framework to run them, and the testing infrastructure that enables you to build high quality visualizations.  The framework provides all the interfaces you need to integrate fully with Power BI's selection, filtering, and other UI experiences.  The code is written in [TypeScript](http://www.typescriptlang.org/) so it's easier to build and debug. Everything compiles down to JavaScript and runs in modern web browsers.  The visuals are built using [D3](http://d3js.org/) but you can use your favorite technology like [WebGL](https://en.wikipedia.org/wiki/WebGL), [Canvas](https://en.wikipedia.org/wiki/Canvas_element), or [SVG](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics). This gives you everything you need to build custom visualizations for Power BI.
@@ -44,8 +42,6 @@ In order to run unit tests you will also need to do the following:
 
 1. Install [PhantomJS](http://phantomjs.org/) (PhantomJS is a headless WebKit scriptable with a JavaScript API. It has fast and native support for various web standards: DOM handling, CSS selector, JSON, Canvas, and SVG.)
  * Make sure it's running from command line typing 'phantomjs'. If it's not then you need to update your system PATH variable and add the path to phantomjs.exe file.
-
-2. Copy the [jasmine-jquery.js](https://raw.github.com/velesin/jasmine-jquery/master/lib/jasmine-jquery.js) Jasmine Extension Library file from GitHub into the following folder on your local machine "[PowerBIVisuals folder]\src\Clients\Externals\ThirdPartyIP\JasmineJQuery\" 
 
 ### Build Power BI visuals
 
