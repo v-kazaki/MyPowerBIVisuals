@@ -2,6 +2,7 @@ $zipUrl = "https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.0.0-windo
 $zipFile = "phantomjs-2.0.0-windows.zip"
 $zipDir = "$PSScriptRoot\extracted"
 $phantomJsBinDir = "$zipDir\phantomjs-2.0.0-windows\bin"
+$jasmineBrowserDir = "$PSScriptRoot\node_modules\gulp-jasmine-browser\lib"
 
 echo "phantomJsBinDir $phantomJsBinDir"
 
@@ -15,8 +16,10 @@ If (Test-Path $zipDir){
 Add-Type -assembly "system.io.compression.filesystem"
 [io.compression.zipfile]::ExtractToDirectory("phantomjs-2.0.0-windows.zip", "extracted")
 
-Get-ChildItem
+copy "$phantomJsBinDir\phantomjs.exe" $jasmineBrowserDir
 
+Get-ChildItem -Path $jasmineBrowserDir
+<#
 echo "$PSScriptRoot" 
 echo $PSScriptRoot
 
@@ -29,4 +32,4 @@ $env:Path += ";" + $phantomJsBinDir
 echo "Second Print Path"
 echo ($env:Path).Replace(';',"`n")
 
-dir $phantomJsBinDir
+dir $phantomJsBinDir#>
