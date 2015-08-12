@@ -4,32 +4,18 @@ $zipDir = "$PSScriptRoot\extracted"
 $phantomJsBinDir = "$zipDir\phantomjs-2.0.0-windows\bin"
 $jasmineBrowserDir = "$PSScriptRoot\node_modules\gulp-jasmine-browser\lib"
 
-echo "phantomJsBinDir $phantomJsBinDir"
-
+# Download phantomjs zip file
 $webclient = New-Object System.Net.WebClient
 $webclient.DownloadFile($zipUrl,$zipFile)
 
+# Delete temporary folder if exists
 If (Test-Path $zipDir){
   Remove-Item $zipDir -Force -Recurse
 }
 
+# Extract phantomjs files to the temporary folder
 Add-Type -assembly "system.io.compression.filesystem"
 [io.compression.zipfile]::ExtractToDirectory("phantomjs-2.0.0-windows.zip", "extracted")
 
+# Copy phantomjs.exe file to the runner folder 
 copy "$phantomJsBinDir\phantomjs.exe" $jasmineBrowserDir
-
-Get-ChildItem -Path $jasmineBrowserDir
-<#
-echo "$PSScriptRoot" 
-echo $PSScriptRoot
-
-echo "First Print Path"
-echo ($env:Path).Replace(';',"`n")
-
-echo "Set Path"
-$env:Path += ";" + $phantomJsBinDir
-
-echo "Second Print Path"
-echo ($env:Path).Replace(';',"`n")
-
-dir $phantomJsBinDir#>
